@@ -88,7 +88,7 @@ export function ImageLightbox({ photos, index, onClose, onIndexChange }: Props) 
               type="button"
               onClick={onClose}
               aria-label="Жабу"
-              className="flex size-11 items-center justify-center rounded-full bg-white/12 text-white transition hover:bg-white/25"
+              className="flex size-11 items-center justify-center rounded-full bg-white/90 text-blue shadow-soft transition hover:bg-white active:scale-95"
             >
               <X className="size-6" />
             </button>
@@ -112,7 +112,7 @@ export function ImageLightbox({ photos, index, onClose, onIndexChange }: Props) 
               dragElastic={0.5}
               onDragEnd={onDragEnd}
               onClick={(e) => e.stopPropagation()}
-              className="relative flex touch-pan-y items-center justify-center px-3 lg:px-24"
+              className="relative flex w-full touch-pan-y items-center justify-center px-3 lg:px-28"
             >
               <Image
                 src={photo.src}
@@ -124,7 +124,7 @@ export function ImageLightbox({ photos, index, onClose, onIndexChange }: Props) 
                 draggable={false}
                 placeholder={photo.blurDataURL ? "blur" : "empty"}
                 blurDataURL={photo.blurDataURL}
-                className="h-auto max-h-[78svh] w-auto max-w-full select-none rounded-[1.25rem] object-contain shadow-2xl lg:max-h-[84vh]"
+                className="h-auto max-h-[calc(100svh-10.5rem)] w-auto max-w-full select-none rounded-[1.25rem] object-contain shadow-2xl lg:max-h-[calc(100svh-8rem)]"
               />
             </motion.div>
           </AnimatePresence>
@@ -138,7 +138,7 @@ export function ImageLightbox({ photos, index, onClose, onIndexChange }: Props) 
                   e.stopPropagation();
                   go(-1);
                 }}
-                className="absolute bottom-[max(1.25rem,env(safe-area-inset-bottom))] left-[calc(50%-4.25rem)] flex size-12 items-center justify-center rounded-full bg-white/14 text-white transition hover:bg-white/28 lg:bottom-auto lg:left-6 lg:top-1/2 lg:-translate-y-1/2"
+                className="absolute bottom-[max(1.25rem,env(safe-area-inset-bottom))] left-[calc(50%-4.25rem)] flex size-12 items-center justify-center rounded-full bg-white/90 text-blue shadow-soft transition hover:bg-white active:scale-95 lg:bottom-auto lg:left-6 lg:top-1/2 lg:-translate-y-1/2"
               >
                 <ChevronLeft className="size-6" />
               </button>
@@ -149,7 +149,7 @@ export function ImageLightbox({ photos, index, onClose, onIndexChange }: Props) 
                   e.stopPropagation();
                   go(1);
                 }}
-                className="absolute bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-[calc(50%-4.25rem)] flex size-12 items-center justify-center rounded-full bg-white/14 text-white transition hover:bg-white/28 lg:bottom-auto lg:right-6 lg:top-1/2 lg:-translate-y-1/2"
+                className="absolute bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-[calc(50%-4.25rem)] flex size-12 items-center justify-center rounded-full bg-white/90 text-blue shadow-soft transition hover:bg-white active:scale-95 lg:bottom-auto lg:right-6 lg:top-1/2 lg:-translate-y-1/2"
               >
                 <ChevronRight className="size-6" />
               </button>
