@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { Baby, Clock3, Languages, UsersRound } from "lucide-react";
-import { aboutFacts, aboutPhoto, groups, sectionText, site } from "@/data/kindergarten";
+import { aboutFacts, aboutPhoto, aboutVideo, groups, sectionText, site } from "@/data/kindergarten";
 import { frameRatio } from "@/lib/photoShape";
 import { Cloud, DotsGrid, Floating, Sparkle, Squiggle, Star } from "../shared/FloatingShapes";
 import { GroupBadgeIcon, GroupDecor, groupTheme } from "../shared/GroupMotif";
+import { AboutVideo } from "../shared/AboutVideo";
 import { AboutIllustration } from "../shared/Placeholders";
 import { Reveal } from "../shared/Reveal";
 import { SectionHeading } from "../shared/SectionHeading";
@@ -32,35 +33,61 @@ export function DesktopAboutGroups() {
       <div className="mx-auto max-w-[1200px] px-6 xl:px-8">
         {/* --- О садике --- */}
         <div className="grid grid-cols-[0.92fr_1.08fr] items-center gap-12 xl:gap-16">
-          <Reveal x={-30} y={0} className="relative mx-auto w-full max-w-[460px]">
-            <div aria-hidden="true" className="absolute -right-5 -top-5 h-full w-full rounded-[3.5rem_1.5rem_3.5rem_1.5rem] border-2 border-dashed border-blue-soft/50" />
-            <div
-              className="relative overflow-hidden rounded-[3.5rem_1.5rem_3.5rem_1.5rem] shadow-lift"
-              style={{ aspectRatio: ratio }}
-            >
-              {aboutPhoto ? (
-                <Image
-                  src={aboutPhoto.src}
-                  width={aboutPhoto.width}
-                  height={aboutPhoto.height}
-                  alt="«Байкадам» балабақшасындағы күнделікті өмір"
-                  sizes="(min-width: 1024px) 460px, 100vw"
-                  placeholder={aboutPhoto.blurDataURL ? "blur" : "empty"}
-                  blurDataURL={aboutPhoto.blurDataURL}
-                  className="h-full w-full object-cover"
+          {aboutVideo ? (
+            <Reveal x={-30} y={0} className="relative flex w-full justify-center">
+              {/* Вертикальное видео 9:16: ширина ограничена высотой экрана, чтобы кадр целиком помещался */}
+              <div className="relative shrink-0" style={{ width: "min(100%, 360px, calc((100svh - 140px) * 9 / 16))" }}>
+                <div aria-hidden="true" className="absolute -right-5 -top-5 h-full w-full rounded-[3.5rem_1.5rem_3.5rem_1.5rem] border-2 border-dashed border-blue-soft/50" />
+                <div aria-hidden="true" className="absolute -left-14 top-1/4 -z-10 h-56 w-56 rounded-full bg-sky/80" />
+                <AboutVideo
+                  video={aboutVideo}
+                  size="lg"
+                  className="rounded-[3.5rem_1.5rem_3.5rem_1.5rem] border-[6px] border-white shadow-lift"
+                  controlsClassName="bottom-5 left-5"
                 />
-              ) : (
-                <AboutIllustration />
-              )}
-            </div>
-            <div className="absolute -bottom-7 -right-7 flex size-32 flex-col items-center justify-center rounded-full bg-blue text-center text-white shadow-lift">
-              <span className="font-display text-[1.6rem] font-black leading-none">1,5–6</span>
-              <span className="mt-1 text-[0.8rem] font-bold text-sky">жас</span>
-            </div>
-            <Floating className="-left-10 -top-8 w-24 text-sky" slow>
-              <Cloud />
-            </Floating>
-          </Reveal>
+                <div className="absolute -bottom-7 -right-12 flex size-28 flex-col items-center justify-center rounded-full bg-blue text-center text-white shadow-lift xl:size-32">
+                  <span className="font-display text-[1.45rem] font-black leading-none xl:text-[1.6rem]">1,5–6</span>
+                  <span className="mt-1 text-[0.8rem] font-bold text-sky">жас</span>
+                </div>
+                <Floating className="-left-12 -top-8 w-24 text-sky" slow>
+                  <Cloud />
+                </Floating>
+                <Floating className="-right-10 top-10 w-5 text-sand-deep" delay={-1.5}>
+                  <Star className="animate-twinkle" />
+                </Floating>
+              </div>
+            </Reveal>
+          ) : (
+          <Reveal x={-30} y={0} className="relative mx-auto w-full max-w-[460px]">
+              <div aria-hidden="true" className="absolute -right-5 -top-5 h-full w-full rounded-[3.5rem_1.5rem_3.5rem_1.5rem] border-2 border-dashed border-blue-soft/50" />
+              <div
+                className="relative overflow-hidden rounded-[3.5rem_1.5rem_3.5rem_1.5rem] shadow-lift"
+                style={{ aspectRatio: ratio }}
+              >
+                {aboutPhoto ? (
+                  <Image
+                    src={aboutPhoto.src}
+                    width={aboutPhoto.width}
+                    height={aboutPhoto.height}
+                    alt="«Байкадам» балабақшасындағы күнделікті өмір"
+                    sizes="(min-width: 1024px) 460px, 100vw"
+                    placeholder={aboutPhoto.blurDataURL ? "blur" : "empty"}
+                    blurDataURL={aboutPhoto.blurDataURL}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <AboutIllustration />
+                )}
+              </div>
+              <div className="absolute -bottom-7 -right-7 flex size-32 flex-col items-center justify-center rounded-full bg-blue text-center text-white shadow-lift">
+                <span className="font-display text-[1.6rem] font-black leading-none">1,5–6</span>
+                <span className="mt-1 text-[0.8rem] font-bold text-sky">жас</span>
+              </div>
+              <Floating className="-left-10 -top-8 w-24 text-sky" slow>
+                <Cloud />
+              </Floating>
+            </Reveal>
+          )}
 
           <div>
             <Reveal>

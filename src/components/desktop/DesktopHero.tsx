@@ -15,7 +15,8 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 
 export function DesktopHero() {
-  const ratio = frameRatio(photos.main, 0.82, 1.15, 0.92);
+  // main-page — горизонтальное фото 4:3: рамка повторяет его пропорции, чтобы дети в кадре не обрезались.
+  const ratio = frameRatio(photos.main, 0.82, 1.34, 0.92);
 
   return (
     <section id="home" data-section="home" aria-labelledby="hero-title-d" className="relative overflow-x-clip pt-[72px]">
@@ -135,7 +136,7 @@ export function DesktopHero() {
             initial={{ opacity: 0, scale: 0.94, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease }}
-            className="relative overflow-hidden border-[6px] border-white shadow-lift shape-blob mx-auto"
+            className={`relative mx-auto overflow-hidden border-[6px] border-white shadow-lift ${ratio > 1.1 ? "shape-blob-soft" : "shape-blob"}`}
             style={{ aspectRatio: ratio, width: `min(100%, max(360px, calc((100svh - 170px) * ${ratio})), ${Math.round(560 * ratio)}px)` }}
           >
             {photos.main ? (

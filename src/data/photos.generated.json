@@ -1,6 +1,90 @@
 {
-  "main": null,
+  "main": {
+    "src": "/images/gallery/main-page.png",
+    "width": 3225,
+    "height": 2419,
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQAAwAA4BaJZQC7AYtVvIUFrYAAP2+Cdui6ewABSzbXqvPERl6BHWzeHPazVta2TWVLc4uQnina0woRxF+NSE0pZG/lw5LElqd2osE0Xx9AU1yb3VAAA=="
+  },
   "logo": null,
   "about": null,
-  "gallery": []
+  "video": {
+    "src": "/videos/main-page2.mp4",
+    "poster": "/videos/main-page2-poster.jpg",
+    "width": 720,
+    "height": 1280
+  },
+  "gallery": [
+    {
+      "src": "/images/gallery/image1.png",
+      "width": 2419,
+      "height": 3225,
+      "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoMABAAA4BaJaACdAEWmVvbao3eAAD+t9ZabBL2NV81yb5UHmAW38EeiyNBgxZeGnXX7e8ofQ6wqcMKc+qVkbvuW06uq0z1mO8+SD63micd18qAEVMyESs8xlbWh8EksAAAAA=="
+    },
+    {
+      "src": "/images/gallery/image3.png",
+      "width": 2419,
+      "height": 3225,
+      "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoMABAAA4BaJQBOgCLMB+3Uv+AA/eJnOMpgmk9QFwOZ8BU+t4DveXpIvh3juPNkVwYjAKpTaeuFbgBUoO4hpJHglBVxyWQA"
+    },
+    {
+      "src": "/images/gallery/image4.png",
+      "width": 960,
+      "height": 1280,
+      "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAQCdASoMABAAA4BaJbACdADzfX7WAAD7l7G4Q6ZjbI0uIdyRJJFsX947JIp9N5FWApx3Dlz27X7s5is/6r27uGkL43khJb9Q4H7M0I+O+8JIFfGzGWACayvsNB3/QqBRwAAA"
+    },
+    {
+      "src": "/images/gallery/image5.jpeg",
+      "width": 3024,
+      "height": 4032,
+      "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQAgCdASoMABAAA4BaJagCdADcX4l7DTkAAMlH0AmM3j9C8sd064LIw8YkA2cpnzEvtEptzgtkgjr6rU18ettfxV92FZ8a8TJ3+NKb9gykQnMe1EHo5xGIMYV2eLI5SHtuaAAA"
+    },
+    {
+      "src": "/images/gallery/image6.jpeg",
+      "width": 3024,
+      "height": 4032,
+      "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoMABAAA4BaJZACdAYuG7k7PsAA/URV/gujmMRghG96VgPpyLrt1Pggkuj0en//Jf4Bnih9koiWXwnbvBFRsdBQPYYph8+F+NViRWOFAAA="
+    },
+    {
+      "src": "/images/gallery/image7.jpeg",
+      "width": 3024,
+      "height": 4032,
+      "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoMABAAA4BaJZACdADdtB/A1f8YAAD+1aaLNrtp5ROfC+Ncyve4PRfcOIPFBdhgSn+spC88KHFxRPJdvdDVDBpVzsc9r1k7+LtOJ+UN2yqaCPytk3Xof+hSmdiVq3aO+oXQAA=="
+    },
+    {
+      "src": "/images/gallery/image8.jpeg",
+      "width": 4032,
+      "height": 3024,
+      "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAQCdASoQAAwAA4BaJbACdADyZOtmwAD+7SsfS5wnVUTI7rHIZUSHrCFblUl2z+EveDISudpgbnmv4qsA9jvaoQLta9RBxIleRzvfYNSFFPjBScW05QAA"
+    },
+    {
+      "src": "/images/gallery/image9.jpeg",
+      "width": 4032,
+      "height": 3024,
+      "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoQAAwAA4BaJYwCw7EXb+jE5haAAP7BIlZYLBx7pYEZV7dmrnxibGzWRXzbVqIcLBcBQoBAbJGuGkIFoF/nTnysW8Sg22KDGJfsMMaLCpU/4Z/AAAA="
+    },
+    {
+      "src": "/images/gallery/image10.jpeg",
+      "width": 3024,
+      "height": 4032,
+      "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoMABAAA4BaJZgCdADhjmgD/45AAPoC2WPAH7EQTpoko/McZpM7GcEoeDtuXmcjAyk+Ezp/di9BBhkr6G6jJsmB1nTEa+Xc6zySHDLQviAAAA=="
+    },
+    {
+      "src": "/images/gallery/image11.jpeg",
+      "width": 3024,
+      "height": 4032,
+      "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMABAAA4BaJZQAAllOd2EigADdm+TJKcTxd3mam/zhjWrN0EMUkJ5uoaeOacNF6DZBeyEuE3hWZDOPwAA="
+    },
+    {
+      "src": "/images/gallery/image12.jpeg",
+      "width": 3024,
+      "height": 4032,
+      "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoMABAAA4BaJbACdADXBorbn4AA/qi4RaT8jTVjINw4xBrwVZWIc44ky8vmjt8jhseBpFNQues9w6oz5lXq8DX/lLMd/uy/c0nX86MdEAAAAA=="
+    },
+    {
+      "src": "/images/gallery/image13.jpeg",
+      "width": 961,
+      "height": 1280,
+      "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoMABAAA4BaJZQAAtxbmUaAAP3jaWXxuGZOPydxq9YdLuoc2iF4Wc8yZuDYMUFTtq0EWdtOcVoF+kTPcoFMxjV0+oAAAA=="
+    }
+  ]
 }

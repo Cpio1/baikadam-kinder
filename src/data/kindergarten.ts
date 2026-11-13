@@ -11,10 +11,18 @@ export type Photo = {
   blurDataURL?: string;
 };
 
+export type Video = {
+  src: string;
+  poster?: string;
+  width: number;
+  height: number;
+};
+
 type PhotosManifest = {
   main: Photo | null;
   logo: Photo | null;
   about: Photo | null;
+  video: Video | null;
   gallery: Photo[];
 };
 
@@ -22,6 +30,9 @@ export const photos = photosJson as PhotosManifest;
 
 /** Фото для раздела «Біз туралы»: about.* → первое фото галереи → заглушка. */
 export const aboutPhoto: Photo | null = photos.about ?? photos.gallery[0] ?? null;
+
+/** Видео раздела «Біз туралы» (public/videos/main-page2.mp4). Если его нет — показывается aboutPhoto. */
+export const aboutVideo: Video | null = photos.video ?? null;
 
 export const site = {
   name: "«Байкадам» балабақшасы",

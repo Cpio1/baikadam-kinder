@@ -123,6 +123,10 @@ button {
 @utility shape-blob {
   border-radius: 58% 42% 52% 48% / 46% 54% 46% 54%;
 }
+/* Мягкая «капля» для горизонтальных фото: углы скруглены меньше, кадр почти не теряется. */
+@utility shape-blob-soft {
+  border-radius: 34% 22% 30% 20% / 30% 24% 34% 26%;
+}
 @utility shape-blob-2 {
   border-radius: 44% 56% 38% 62% / 55% 42% 58% 45%;
 }

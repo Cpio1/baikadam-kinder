@@ -15,7 +15,11 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export function MobileHero() {
   // Вертикальная «арка»: соотношение подстраивается под фото, чтобы обрезка была минимальной.
-  const ratio = frameRatio(photos.main, 0.78, 1.05, 0.84);
+  const ratio = frameRatio(photos.main, 0.78, 1.34, 0.84);
+  // Горизонтальное фото (main-page 4:3) в «арке» потеряло бы края кадра — для него мягкая рамка-облако.
+  const landscape = ratio > 1.1;
+  const outer = landscape ? "rounded-[3rem_3rem_3rem_1.25rem]" : "rounded-[999px_999px_2.6rem_2.6rem]";
+  const inner = landscape ? "rounded-[2.6rem_2.6rem_2.6rem_0.85rem]" : "rounded-[999px_999px_2.25rem_2.25rem]";
 
   return (
     <section id="m-home" data-section="home" aria-labelledby="hero-title-m" className="relative overflow-x-clip pt-16">
@@ -56,12 +60,12 @@ export function MobileHero() {
           initial={{ opacity: 0, y: 24, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.35, ease }}
-          className="relative mx-auto mt-7 w-[86%] max-w-[380px]"
+          className={`relative mx-auto mt-7 ${landscape ? "w-[94%] max-w-[480px]" : "w-[86%] max-w-[380px]"}`}
         >
-          <div aria-hidden="true" className="absolute -inset-2.5 rounded-[999px_999px_2.6rem_2.6rem] bg-white shadow-lift" />
+          <div aria-hidden="true" className={`absolute -inset-2.5 bg-white shadow-lift ${outer}`} />
           <div aria-hidden="true" className="absolute -bottom-4 -left-5 size-20 rounded-full bg-sand" />
           <div aria-hidden="true" className="absolute -right-4 top-1/3 size-10 rounded-full bg-sky-deep" />
-          <div className="relative overflow-hidden rounded-[999px_999px_2.25rem_2.25rem]" style={{ aspectRatio: ratio }}>
+          <div className={`relative overflow-hidden ${inner}`} style={{ aspectRatio: ratio }}>
             {photos.main ? (
               <Image
                 src={photos.main.src}
@@ -80,7 +84,7 @@ export function MobileHero() {
               <HeroIllustration />
             )}
           </div>
-          <Cloud aria-hidden="true" className="absolute -left-7 top-6 w-16 text-white drop-shadow-sm animate-float" />
+          <Cloud aria-hidden="true" className="absolute -left-5 -top-5 w-16 text-white drop-shadow-sm animate-float" />
           <Star aria-hidden="true" className="absolute -right-1 -top-1 w-5 text-blue-soft animate-twinkle" />
           <Sparkle aria-hidden="true" className="absolute -right-3 bottom-10 w-3.5 text-brown-soft animate-twinkle [animation-delay:-1.5s]" />
         </motion.div>

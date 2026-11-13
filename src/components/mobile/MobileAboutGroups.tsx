@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { Baby, Clock3, Languages, UsersRound } from "lucide-react";
-import { aboutFacts, aboutPhoto, groups, sectionText, site } from "@/data/kindergarten";
+import { aboutFacts, aboutPhoto, aboutVideo, groups, sectionText, site } from "@/data/kindergarten";
 import { frameRatio } from "@/lib/photoShape";
 import { Squiggle } from "../shared/FloatingShapes";
 import { GroupBadgeIcon, GroupDecor, groupTheme } from "../shared/GroupMotif";
+import { AboutVideo } from "../shared/AboutVideo";
 import { AboutIllustration } from "../shared/Placeholders";
 import { Reveal } from "../shared/Reveal";
 import { SectionHeading } from "../shared/SectionHeading";
@@ -26,28 +27,47 @@ export function MobileAboutGroups() {
           <SectionHeading eyebrow={sectionText.about.eyebrow} title={sectionText.about.title} id="about-title-m" />
         </Reveal>
 
-        <Reveal delay={0.05} className="relative mt-6">
-          <div className="relative overflow-hidden rounded-[2.5rem_1rem_2.5rem_1rem] shadow-lift" style={{ aspectRatio: ratio }}>
-            {aboutPhoto ? (
-              <Image
-                src={aboutPhoto.src}
-                width={aboutPhoto.width}
-                height={aboutPhoto.height}
-                alt="«Байкадам» балабақшасындағы күнделікті өмір"
-                sizes="(max-width: 560px) 100vw, 560px"
-                placeholder={aboutPhoto.blurDataURL ? "blur" : "empty"}
-                blurDataURL={aboutPhoto.blurDataURL}
-                className="h-full w-full object-cover"
+        {aboutVideo ? (
+          <Reveal delay={0.05} className="relative mt-7">
+            {/* Вертикальное видео 9:16 по центру: ширина ограничена высотой экрана — кадр виден целиком */}
+            <div className="relative mx-auto" style={{ width: "min(84%, 340px, calc(72svh * 9 / 16))" }}>
+              <div aria-hidden="true" className="absolute -left-6 -top-4 size-24 rounded-full bg-sky" />
+              <div aria-hidden="true" className="absolute -bottom-4 -right-5 size-20 rounded-full bg-sand" />
+              <AboutVideo
+                video={aboutVideo}
+                className="rounded-[2.5rem_1rem_2.5rem_1rem] border-[5px] border-white shadow-lift"
+                controlsClassName="bottom-3.5 left-3.5"
               />
-            ) : (
-              <AboutIllustration />
-            )}
-          </div>
-          <div className="absolute -bottom-5 right-4 flex items-baseline gap-1 rounded-full bg-blue px-4 py-2 text-white shadow-lift">
-            <span className="font-display text-[1.15rem] font-black">1,5–6</span>
-            <span className="text-[0.8rem] font-bold text-sky">жас</span>
-          </div>
-        </Reveal>
+              <div className="absolute -right-3 top-5 flex items-baseline gap-1 rounded-full bg-blue px-3.5 py-1.5 text-white shadow-lift">
+                <span className="font-display text-[1.05rem] font-black">1,5–6</span>
+                <span className="text-[0.75rem] font-bold text-sky">жас</span>
+              </div>
+            </div>
+          </Reveal>
+        ) : (
+        <Reveal delay={0.05} className="relative mt-6">
+            <div className="relative overflow-hidden rounded-[2.5rem_1rem_2.5rem_1rem] shadow-lift" style={{ aspectRatio: ratio }}>
+              {aboutPhoto ? (
+                <Image
+                  src={aboutPhoto.src}
+                  width={aboutPhoto.width}
+                  height={aboutPhoto.height}
+                  alt="«Байкадам» балабақшасындағы күнделікті өмір"
+                  sizes="(max-width: 560px) 100vw, 560px"
+                  placeholder={aboutPhoto.blurDataURL ? "blur" : "empty"}
+                  blurDataURL={aboutPhoto.blurDataURL}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <AboutIllustration />
+              )}
+            </div>
+            <div className="absolute -bottom-5 right-4 flex items-baseline gap-1 rounded-full bg-blue px-4 py-2 text-white shadow-lift">
+              <span className="font-display text-[1.15rem] font-black">1,5–6</span>
+              <span className="text-[0.8rem] font-bold text-sky">жас</span>
+            </div>
+          </Reveal>
+        )}
 
         <Reveal>
           <p className="mt-9 text-[0.98rem] leading-[1.7] text-ink-soft">{site.about}</p>
