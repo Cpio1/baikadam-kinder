@@ -1,6 +1,7 @@
 import { DesktopAboutGroups } from "@/components/desktop/DesktopAboutGroups";
 import { DesktopActivities } from "@/components/desktop/DesktopActivities";
 import { DesktopContacts } from "@/components/desktop/DesktopContacts";
+import { DesktopDocuments } from "@/components/desktop/DesktopDocuments";
 import { DesktopFooter } from "@/components/desktop/DesktopFooter";
 import { DesktopGallery } from "@/components/desktop/DesktopGallery";
 import { DesktopHeader } from "@/components/desktop/DesktopHeader";
@@ -9,6 +10,7 @@ import { DesktopNutrition } from "@/components/desktop/DesktopNutrition";
 import { MobileAboutGroups } from "@/components/mobile/MobileAboutGroups";
 import { MobileActivities } from "@/components/mobile/MobileActivities";
 import { MobileContacts } from "@/components/mobile/MobileContacts";
+import { MobileDocuments } from "@/components/mobile/MobileDocuments";
 import { MobileFooter } from "@/components/mobile/MobileFooter";
 import { MobileGallery } from "@/components/mobile/MobileGallery";
 import { MobileHeader } from "@/components/mobile/MobileHeader";
@@ -62,6 +64,7 @@ export default function Home() {
           <DesktopActivities />
           <DesktopNutrition />
           <DesktopGallery />
+          <DesktopDocuments />
           <DesktopContacts />
         </div>
         <div className="lg:hidden">
@@ -70,6 +73,7 @@ export default function Home() {
           <MobileActivities />
           <MobileNutrition />
           <MobileGallery />
+          <MobileDocuments />
           <MobileContacts />
         </div>
       </main>

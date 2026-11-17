@@ -29,7 +29,7 @@ export function DesktopHeader() {
         scrolled ? "bg-white/88 shadow-[0_6px_24px_-14px_rgb(35_63_89/0.35)] backdrop-blur-md" : "bg-bg/70 backdrop-blur-sm"
       }`}
     >
-      <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between gap-6 px-6 xl:px-8">
+      <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between gap-3 px-6 xl:px-8">
         <a href="#home" onClick={handleAnchorClick("home")} aria-label="«Байкадам» балабақшасы — басты бет" className="shrink-0">
           <Logo size={42} />
         </a>
@@ -51,7 +51,7 @@ export function DesktopHeader() {
                     href={`#${item.key}`}
                     onClick={handleAnchorClick(item.key)}
                     aria-current={isActive ? "true" : undefined}
-                    className={`relative block whitespace-nowrap rounded-full px-2.5 py-2 text-[0.86rem] font-bold transition-colors xl:px-3.5 ${
+                    className={`relative block whitespace-nowrap rounded-full px-2 py-2 text-[0.86rem] font-bold transition-colors xl:px-2.5 ${
                       isActive ? "text-blue" : "text-ink-soft hover:text-ink"
                     }`}
                   >

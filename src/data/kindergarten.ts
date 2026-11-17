@@ -63,7 +63,7 @@ export const contacts = {
   scheduleHours: "08:00–18:00",
 } as const;
 
-export type SectionKey = "home" | "about" | "activities" | "nutrition" | "gallery" | "contacts";
+export type SectionKey = "home" | "about" | "activities" | "nutrition" | "gallery" | "documents" | "contacts";
 
 /** Навигация. Отдельного пункта «Топтар» нет — группы находятся внутри «Біз туралы». */
 export const navItems: { key: SectionKey; label: string }[] = [
@@ -72,6 +72,7 @@ export const navItems: { key: SectionKey; label: string }[] = [
   { key: "activities", label: "Үйірмелер" },
   { key: "nutrition", label: "Тамақтану" },
   { key: "gallery", label: "Галерея" },
+  { key: "documents", label: "Құжаттар" },
   { key: "contacts", label: "Байланыс" },
 ];
 
@@ -162,6 +163,13 @@ export const sectionText = {
     less: "Жасыру",
     emptyTitle: "Фотосуреттер жақын арада қосылады",
     emptyText: "Балабақша өмірінен қуанышты сәттерді осы жерден көре аласыз.",
+  },
+  documents: {
+    eyebrow: "Құжаттар",
+    title: "Балабақша құжаттары",
+    text: "Балабақшаның ресми құжаттары төмендегі сілтеме бойынша қолжетімді.",
+    button: "Құжаттарды қарау",
+    href: "https://drive.google.com/drive/folders/1VuDEW5Uv_cHAJqsKex-VXrdtU-LCXnBL",
   },
   contacts: { eyebrow: "Байланыс", title: "Бізбен байланысыңыз", subtitle: "Сұрақтарыңыз болса, бізге хабарласыңыз!" },
 } as const;
