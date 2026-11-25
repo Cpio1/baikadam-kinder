@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Nunito, Nunito_Sans } from "next/font/google";
 import { MotionProvider } from "@/components/shared/MotionProvider";
 import { photos } from "@/data/kindergarten";
+import { withBasePath } from "@/lib/basePath";
 import "./globals.css";
 
 // Оба шрифта содержат казахские буквы (Ә, Ғ, Қ, Ң, Ө, Ұ, Ү, Һ, І) в наборе cyrillic-ext.
@@ -28,24 +29,29 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : "http://localhost:3000";
 
+// metadataBase — только origin: Next.js склеивает его pathname с относительными URL,
+// а пути ниже уже содержат basePath (photos.* — через withBasePath), так префикс не удваивается.
+const siteOrigin = new URL(siteUrl).origin;
+const homeUrl = withBasePath("/");
+
 const ogImage = photos.main
   ? [{ url: photos.main.src, width: photos.main.width, height: photos.main.height, alt: "«Байкадам» балабақшасы" }]
   : undefined;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteOrigin),
   title,
   description,
   applicationName: "«Байкадам» балабақшасы",
   keywords: ["Байкадам", "балабақша", "Алматы", "балабақша Алматы", "қазақ тілінде тәрбие", "детский сад Алматы"],
-  alternates: { canonical: "/" },
+  alternates: { canonical: homeUrl },
   openGraph: {
     title,
     description,
     type: "website",
     locale: "kk_KZ",
     siteName: "«Байкадам» балабақшасы",
-    url: "/",
+    url: homeUrl,
     images: ogImage,
   },
   twitter: { card: ogImage ? "summary_large_image" : "summary", title, description },

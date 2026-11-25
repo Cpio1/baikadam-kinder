@@ -2,6 +2,7 @@
  * Единый источник данных сайта. Desktop- и mobile-компоненты берут всё отсюда.
  * Вся информация предоставлена заказчиком — не добавляйте сюда непроверенные факты.
  */
+import { withBasePath } from "@/lib/basePath";
 import photosJson from "./photos.generated.json";
 
 export type Photo = {
@@ -26,7 +27,19 @@ type PhotosManifest = {
   gallery: Photo[];
 };
 
-export const photos = photosJson as PhotosManifest;
+const manifest = photosJson as PhotosManifest;
+
+/** Пути в манифесте — от корня public/; здесь к ним один раз добавляется basePath (GitHub Pages). */
+const withBase = <T extends { src: string; poster?: string }>(item: T | null): T | null =>
+  item ? { ...item, src: withBasePath(item.src), ...(item.poster ? { poster: withBasePath(item.poster) } : {}) } : null;
+
+export const photos: PhotosManifest = {
+  main: withBase(manifest.main),
+  logo: withBase(manifest.logo),
+  about: withBase(manifest.about),
+  video: withBase(manifest.video),
+  gallery: manifest.gallery.map((p) => withBase(p)!),
+};
 
 /** Фото для раздела «Біз туралы»: about.* → первое фото галереи → заглушка. */
 export const aboutPhoto: Photo | null = photos.about ?? photos.gallery[0] ?? null;
